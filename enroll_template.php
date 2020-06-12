@@ -2,7 +2,6 @@
 	
 <?php get_header(); the_post(); ?>
 <?php
-
 	if(isset($_GET["success"])){
 		$flag_error = true;
 		$message_final = "Your message has been successfully received by us. We will contact you shortly";
@@ -78,10 +77,13 @@
 
 					<?php if($flag_error): ?>
 						<div class="alert alert-success alert-dismissible fade show">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							    <span aria-hidden="true">&times;</span>
+							</button>
 							<?php echo $message_final; ?>
 						</div>
 					<?php endif; ?>
-					
+
 					<form method="POST" action="" class="enroll-form">
 						<div class="row">
 							<div class="col-md-6 form-group">
