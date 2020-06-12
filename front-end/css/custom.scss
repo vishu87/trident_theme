@@ -339,6 +339,39 @@ h1,h2,h3,h4,h5,h6{
 		}
 	}
 }
+.enroll{
+	font-size: 16px;
+	.enroll-form{
+		padding: 20px;
+		border: 1px solid #ced4da;
+		margin-bottom: 20px;
+		border-radius: 5px;
+	}
+	.form-group{
+		label{
+			font-weight: 600;
+			&.min{
+				font-size: 12px;
+			}
+		}
+		label.error{
+			font-weight: 500;
+			color: #f00;
+			font-size: 14px;
+		}
+		.form-control{
+			border-radius:0;
+			font-size: 16px;
+		}
+	}
+	.btn-submit{
+		background: $color_grey_dark;
+		color: $color_white;
+		border:none;
+		outline: none;
+		padding:5px 15px;
+	}
+}
 
 @media only screen and (max-width:768px){
 	.heading-primary{

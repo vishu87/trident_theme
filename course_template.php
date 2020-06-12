@@ -17,6 +17,7 @@
 			</p>
 		</div>
 	</section>
+
 	<section class="courses">
 		<div class="container">
 			<div class="row course">

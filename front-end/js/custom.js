@@ -4,7 +4,22 @@ $(document).ready(function(){
 		$("header .header--nav > ul").slideToggle();
 	});
 
-	AOS.init();
+	$(".enroll-form").validate();
+
+	$("#stream").change(function(){
+		var val = $(this).val();
+		if (val=='science') {
+			$("#subject").show();
+		}
+		if (val=='arts') {
+			$("#subject").hide();
+		}
+		if (val=='commerce') {
+			$("#subject").hide();
+		}
+
+
+	});
 });
 
 
