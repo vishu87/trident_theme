@@ -11,14 +11,9 @@ $(document).ready(function(){
 		if (val=='science') {
 			$("#subject").show();
 		}
-		if (val=='arts') {
+		if (val=='arts' || val=='commerce') {
 			$("#subject").hide();
 		}
-		if (val=='commerce') {
-			$("#subject").hide();
-		}
-
-
 	});
 });
 

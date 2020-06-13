@@ -1,6 +1,14 @@
 <?php /* Template Name: Course Page */ ?>
 
 <?php get_header(); the_post(); ?>
+
+<?php
+	
+	$posts = new WP_Query(array(
+		"post_type" => "course",
+		'order' => 'DESC',
+	));
+?>
 <div class="main">
 	<section class="banner">
 		<div class="container">
@@ -17,7 +25,27 @@
 			</p>
 		</div>
 	</section>
-
+	<!-- <section class="courses">
+		<div class="container">
+			<?php while ($posts->have_posts()): $posts->the_post(); ?>
+				<div class="row course">
+					<div class="col-md-6">
+						<h2 class="heading-secondary mb-3">
+							<?php the_title(); ?>
+						</h2>
+						<div>
+							<?php the_content(); ?>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="image">
+							<?php the_post_thumbnail(); ?>
+						</div>
+					</div>
+				</div>
+			<?php endwhile; ?>
+		</div>
+	</section> -->
 	<section class="courses">
 		<div class="container">
 			<div class="row course">
@@ -81,7 +109,6 @@
 			</p>
 		</div>
 	</section>
-
 </div>
 <?php get_footer(); ?>
 

@@ -2,6 +2,8 @@
 	
 <?php get_header(); the_post(); ?>
 <?php
+
+
 	if(isset($_GET["success"])){
 		$flag_error = true;
 		$message_final = "Your message has been successfully received by us. We will contact you shortly";
@@ -10,7 +12,6 @@
 	}
 
 	if (isset($_POST['submission_hidden'])) {
-		
 		if($_POST['submission_hidden'] == 1 ) {
 		    $nonce = $_POST['_wpnonce'];
 		    if(wp_verify_nonce( $nonce, 'submit-singup')){
@@ -19,7 +20,7 @@
 				$mobile=isset($_POST["mobile"])?esc_attr($_POST["mobile"]):'';
 				$school=isset($_POST["school"])?esc_attr($_POST["school"]):'';
 				$stream=isset($_POST["stream"])?esc_attr($_POST["stream"]):'';
-				$marks ="";
+				$marks = "";
 				if ($stream == 'science') {
 					$science_marks=isset($_POST["science_marks"])?esc_attr($_POST["science_marks"]):'';
 					$maths_marks=isset($_POST["maths_marks"])?esc_attr($_POST["maths_marks"]):'';
@@ -33,10 +34,8 @@
 				$occupation=isset($_POST["occupation"])?esc_attr($_POST["occupation"]):'';
 
 				$parent_mobile=isset($_POST["parent_mobile"])?esc_attr($_POST["parent_mobile"]):'';
-				
 
-
-				$message = "Name: ".$name."<br>"."Address: ".$address."<br>"."Mobile: ".$mobile."<br>"."School :".$school."<br>"."Stream: ".$stream."<br>"."Percentage: ".$percentage."<br>"."Father Name: ".$father_name."<br>"."Occupation: ".$occupation."<br>"."Parent Mobile: ".$parent_mobile."<br>"."Marks :".$marks;
+				$message = "Name: ".$name."<br>"."Address: ".$address."<br>"."Mobile: ".$mobile."<br>"."School :".$school."<br>"."Stream: ".$stream."<br>"."Percentage: ".$percentage."<br>"."Father's Name: ".$father_name."<br>"."Occupation: ".$occupation."<br>"."Parent's Mobile: ".$parent_mobile."<br>"."Marks :".$marks;
 
 				require 'mailer/PHPMailerAutoload.php';
 
@@ -61,9 +60,13 @@
 	            	wp_redirect(esc_url( home_url( '/enroll?success=#success_message') ));
 	            }
 			} else {
+				$flag_error =false;
 			    $message_final = "Invalid Request";
 			}
 		}
+	}else{
+		$flag_error =false;
+		$message_final = "Invalid Request";
 	}
 ?>
 <div class="enroll">
@@ -156,7 +159,6 @@
 								<input type="text" name="parent_mobile" class="form-control" placeholder="Enter Parent's Mobile Number" required>
 							</div>
 						</div>
-						
 						
 						<?php wp_nonce_field( 'submit-singup','_wpnonce', true); ?>
 						<input type="hidden" name="submission_hidden" value="1">
