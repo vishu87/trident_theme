@@ -3,71 +3,75 @@
 <?php get_header(); the_post(); ?>
 <?php
 
+	// if(isset($_GET["success"])){
+	// 	$flag_error = true;
+	// 	$message_final = "Your message has been successfully received by us. We will contact you shortly";
+	// } else {
+	// 	$flag_error = false;
+	// }
 
-	if(isset($_GET["success"])){
-		$flag_error = true;
-		$message_final = "Your message has been successfully received by us. We will contact you shortly";
-	} else {
-		$flag_error = false;
-	}
+	// if (isset($_GET['submission_hidden'])) {
+	// 	if($_GET['submission_hidden'] == 1 ) {
+	// 	    $nonce = $_GET['_wpnonce'];
+	// 	    if(wp_verify_nonce( $nonce, 'submit-singup')){
+	// 			$name=isset($_GET["name"])?esc_attr($_GET["name"]):'';
+	// 			$address=isset($_GET["address"])?esc_attr($_GET["address"]):'';
+	// 			$mobile=isset($_GET["mobile"])?esc_attr($_GET["mobile"]):'';
+	// 			$school=isset($_GET["school"])?esc_attr($_GET["school"]):'';
+	// 			$stream=isset($_GET["stream"])?esc_attr($_GET["stream"]):'';
+	// 			$marks = "";
+	// 			if ($stream == 'science') {
+	// 				$science_marks=isset($_GET["science_marks"])?esc_attr($_GET["science_marks"]):'';
+	// 				$maths_marks=isset($_GET["maths_marks"])?esc_attr($_GET["maths_marks"]):'';
+	// 				$english_marks=isset($_GET["english_marks"])?esc_attr($_GET["english_marks"]):'';
+	// 				$marks = "Science :".$science_marks."<br>"."Maths :".$maths_marks."<br>"."English :".$english_marks."<br>";
+	// 			}
 
-	if (isset($_POST['submission_hidden'])) {
-		if($_POST['submission_hidden'] == 1 ) {
-		    $nonce = $_POST['_wpnonce'];
-		    if(wp_verify_nonce( $nonce, 'submit-singup')){
-				$name=isset($_POST["name"])?esc_attr($_POST["name"]):'';
-				$address=isset($_POST["address"])?esc_attr($_POST["address"]):'';
-				$mobile=isset($_POST["mobile"])?esc_attr($_POST["mobile"]):'';
-				$school=isset($_POST["school"])?esc_attr($_POST["school"]):'';
-				$stream=isset($_POST["stream"])?esc_attr($_POST["stream"]):'';
-				$marks = "";
-				if ($stream == 'science') {
-					$science_marks=isset($_POST["science_marks"])?esc_attr($_POST["science_marks"]):'';
-					$maths_marks=isset($_POST["maths_marks"])?esc_attr($_POST["maths_marks"]):'';
-					$english_marks=isset($_POST["english_marks"])?esc_attr($_POST["english_marks"]):'';
-					$marks = "Science :".$science_marks."<br>"."Maths :".$maths_marks."<br>"."English :".$english_marks."<br>";
-				}
+	// 			$percentage=isset($_GET["percentage"])?esc_attr($_GET["percentage"]):'';
 
-				$percentage=isset($_POST["percentage"])?esc_attr($_POST["percentage"]):'';
+	// 			$father_name=isset($_GET["father_name"])?esc_attr($_GET["father_name"]):'';
+	// 			$occupation=isset($_GET["occupation"])?esc_attr($_GET["occupation"]):'';
 
-				$father_name=isset($_POST["father_name"])?esc_attr($_POST["father_name"]):'';
-				$occupation=isset($_POST["occupation"])?esc_attr($_POST["occupation"]):'';
+	// 			$parent_mobile=isset($_GET["parent_mobile"])?esc_attr($_GET["parent_mobile"]):'';
 
-				$parent_mobile=isset($_POST["parent_mobile"])?esc_attr($_POST["parent_mobile"]):'';
+	// 			$message = "Name: ".$name."<br>"."Address: ".$address."<br>"."Mobile: ".$mobile."<br>"."School :".$school."<br>"."Stream: ".$stream."<br>"."Percentage: ".$percentage."<br>"."Father's Name: ".$father_name."<br>"."Occupation: ".$occupation."<br>"."Parent's Mobile: ".$parent_mobile."<br>"."Marks :".$marks;
 
-				$message = "Name: ".$name."<br>"."Address: ".$address."<br>"."Mobile: ".$mobile."<br>"."School :".$school."<br>"."Stream: ".$stream."<br>"."Percentage: ".$percentage."<br>"."Father's Name: ".$father_name."<br>"."Occupation: ".$occupation."<br>"."Parent's Mobile: ".$parent_mobile."<br>"."Marks :".$marks;
+	// 			require 'mailer/PHPMailerAutoload.php';
 
-				require 'mailer/PHPMailerAutoload.php';
+	// 			$mail = new PHPMailer;
 
-				$mail = new PHPMailer;
+	// 			$mail->IsSMTP();
+	// 			$mail->SMTPAuth   = true;
+	// 			$mail->SMTPSecure = "tls";
+	// 			$mail->Port       = 587;
+	// 			$mail->Host       = "smtp.gmail.com";
+	// 			$mail->Username   = "contact@avyay.co.in";
+	// 			$mail->Password   = "Vishu_1987";
+	// 			$mail->SetFrom('contact@avyay.co.in', 'Trident Academy');
+	// 			$mail->IsHTML(true);
+	// 			$mail->addAddress("dipanshuchauhan23@gmail.com");
 
-				$mail->IsSMTP();
-				$mail->SMTPAuth   = true;
-				$mail->SMTPSecure = "tls";
-				$mail->Port       = 587;
-				$mail->Host       = "smtp.gmail.com";
-				$mail->Username   = "contact@avyay.co.in";
-				$mail->Password   = "Vishu_1987";
-				$mail->SetFrom('contact@avyay.co.in', 'Trident Academy');
-				$mail->IsHTML(true);
-				$mail->addAddress("info@thetridentacademy.com");
-				$mail->addAddress("vishu.iitd@gmail.com");
-				$mail->Subject = "Trident Academy - Enroll Form";
-				$mail->Body = $message;
+	// 			// $mail->addAddress("info@thetridentacademy.com");
+	// 			// $mail->addAddress("vishu.iitd@gmail.com");
+	// 			$mail->Subject = "Trident Academy - Enroll Form";
+	// 			$mail->Body = $message;
 
-	            $res = $mail->send();
-	            if ($res) {
-	            	wp_redirect(esc_url( home_url( '/enroll?success=#success_message') ));
-	            }
-			} else {
-				$flag_error =false;
-			    $message_final = "Invalid Request";
-			}
-		}
-	}else{
-		$flag_error =false;
-		$message_final = "Invalid Request";
-	}
+	//             $res = $mail->send();
+	//             if ($res) {
+	//             	wp_redirect(esc_url( home_url( '/enroll?success=#success_message') ));
+	//             }
+	// 		} else {
+	// 			$flag_error =false;
+	// 		    $message_final = "Invalid Request";
+	// 		}
+	// 	}
+	// }else{
+	// 	$flag_error =false;
+	// 	$message_final = "Invalid Request";
+	// }
+
+	
+	
 ?>
 <div class="enroll">
 	<div class="container">
@@ -87,7 +91,7 @@
 						</div>
 					<?php endif; ?>
 
-					<form method="POST" action="" class="enroll-form">
+					<form method="GET" action="" class="enroll-form">
 						<div class="row">
 							<div class="col-md-6 form-group">
 								<label>Name</label>
@@ -126,7 +130,7 @@
 							<div class="row">
 								<div class="col-md-4 col-sm-4 form-group">
 									<label class="min">Marks Scored in Science</label>
-									<input type="text" name="science_marks" class="form-control" placeholder="Science Marks">
+									<input type="text" name="science_marks" class="form-control" placeholder="Science Marks" >
 								</div>
 								<div class="col-md-4 col-sm-4 form-group">
 									<label class="min">Marks Scored in Maths</label>
@@ -164,7 +168,7 @@
 						<input type="hidden" name="submission_hidden" value="1">
 
 						<div class="mb-3" style="margin-bottom: 20px;">
-							<button type="submit" class="btn-submit">Submit</button> 
+							<button type="submit" class="btn-submit" id="btn-submit">Submit</button> 
 						</div>
 					</form>
 				</div>
