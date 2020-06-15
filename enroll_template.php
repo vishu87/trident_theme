@@ -127,7 +127,7 @@
 							<div class="form-group">
 								<label>Subjectwise Marks</label>
 							</div>
-							<div class="row">
+							<div class="row" style="margin-top: -20px;">
 								<div class="col-md-4 col-sm-4 form-group">
 									<label class="min">Marks Scored in Science</label>
 									<input type="text" name="science_marks" class="form-control" placeholder="Science Marks" >

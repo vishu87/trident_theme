@@ -55,7 +55,7 @@
 		<div class="container features--about">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="heading-primary t-pri mb-3">
+					<div class="heading-primary t-pri">
 						Trident Academy
 					</div>
 					<div>
@@ -81,7 +81,7 @@
 	<section class="homecourse">
 		<div class="container">
 			<div class="text-center">
-				<div class="heading-primary t-pri mb-3">
+				<div class="heading-primary t-pri">
 					Enroll With Us & Develop Your Career
 				</div>
 				<p class="fs-20">Take challenge, get enrolled, develop a better career and serve the humanity. </p>
