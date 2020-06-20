@@ -4,9 +4,9 @@ $(document).ready(function(){
 		$("header .header--nav > ul").slideToggle();
 	});
 
-	$(".enroll-form").validate();
+	// $(".enroll-form").validate();
 
-	$("#stream").change(function(){
+	$(document).on("change","#stream",function(){
 		var val = $(this).val();
 		if (val=='science') {
 			$("#subject").show();
@@ -16,6 +16,12 @@ $(document).ready(function(){
 		}
 	});
 
+	$(document).on("click","#submit-btn",function(){
+		if($(".enroll-form").valid()){
+			$("#submit-btn").css("display","none");
+			$("#test-btn").css("display","block");
+		}
+	});
 });
 
 

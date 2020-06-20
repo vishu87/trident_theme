@@ -2,7 +2,7 @@
 	function theme_css_scripts() {
 	  	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/front-end/bootstrap/css/bootstrap.min.css', array(), '1.0.0', false );
 
-	  	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/front-end/plugins/font-awesome/css/font-awesome.min.css', array(), '1.0.0', false );
+	  	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/front-end/font-awesome/css/font-awesome.min.css', array(), '1.0.0', false );
 
 
 	  	wp_enqueue_style( 'custom', get_template_directory_uri() . '/front-end/css/custom.css', array(), '2.1.7', false );

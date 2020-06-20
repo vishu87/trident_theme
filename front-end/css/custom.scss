@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,800,800i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-
-$body_font:'Work Sans', sans-serif;
-$heading_font:'Poppins', sans-serif;
+$body_font:'Poppins', sans-serif;
 
 $color_primary:#FF8700;
 $color_grey_dark:#002147;
@@ -17,7 +14,7 @@ html,body{
 	/*font-size: 10px;*/
 }
 body{
-	font-family: $heading_font;
+	font-family: $body_font;
 }
 .table-div{
 	display: table;
@@ -64,7 +61,20 @@ h1,h2,h3,h4,h5,h6{
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
+.sub-btn{
+	width: 120px;
+	text-align: center;
+	background: $color_grey_dark;
+	color: #fff;
+	border: none;
+	outline: none;
+	padding: 10px 0;
+	&:active,&:focus{
+		box-shadow:none;
+	}
+}
 .btn{
+	display: inline-block;
     &:link,&:visited{
         text-transform: uppercase;
         text-decoration: none;
@@ -187,13 +197,16 @@ h1,h2,h3,h4,h5,h6{
 				    font-size: 16px;
 				    padding: 10px;
 				    transition: 0.3s;
+				    font-weight: 500;
 				    &:hover {
-				    	color:$color_primary;
+				    	opacity:0.9;
+				    	/*color:$color_primary;*/
 				    }
 				}
 				&.current_page_item{
 					a{
-						color:$color_primary;
+						opacity: 0.9;
+						/*color:$color_primary;*/
 					}
 				}
 
@@ -291,11 +304,7 @@ h1,h2,h3,h4,h5,h6{
 			}
 		}
 	}
-	&.mission{
-		/*.features--block{
-			min-height: 380px;
-		}*/
-	}
+	
 	&--about{
 		padding-top: 40px;
 	}
@@ -307,6 +316,7 @@ h1,h2,h3,h4,h5,h6{
 		padding-bottom: 20px;
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
+		height: 100%;
 
 		.image{
 			img{
@@ -323,10 +333,9 @@ h1,h2,h3,h4,h5,h6{
 .homeservice{
 	padding: 120px 0;
 	background-image: 
-		linear-gradient(90deg, rgba($color_black,.4) 100%,
+		linear-gradient(90deg, rgba($color_black,.5) 100%,
 		transparent 50%),
-		url('../images/scb.jpg');
-
+		url('../images/img/building.jpg');
 	background-repeat:no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -362,7 +371,6 @@ h1,h2,h3,h4,h5,h6{
 	.enroll-form{
 		padding: 20px;
 		border: 1px solid #ced4da;
-		margin-bottom: 20px;
 		border-radius: 5px;
 	}
 	.form-group{
@@ -437,8 +445,12 @@ h1,h2,h3,h4,h5,h6{
 			ul {
 				display: none;
 				text-align: left;
+				padding-bottom: 0;
 				li {
 					display: block;
+					&:not(:last-child){
+						border-bottom: 1px solid red;
+					}
 					a{
 						padding: 5px 0;
 					}
@@ -450,5 +462,8 @@ h1,h2,h3,h4,h5,h6{
 		.text-right{
 			text-align: left ! important;
 		}
+	}
+	.banner{
+		padding: 100px 0;
 	}
 }
